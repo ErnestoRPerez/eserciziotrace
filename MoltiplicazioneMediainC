@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+
+int main() {
+
+    //moltiplicazione
+
+    int n1, n2, prodotto;
+
+
+    printf("Inserisci il primo valore: ");// Leggo il primo valore
+    scanf("%d", &n1);
+
+
+    printf("Inserisci il secondo valore: "); // Leggo il secondo valore
+    scanf("%d", &n2);
+
+    // Calcolo il prodotto
+    prodotto = n1 * n2;
+
+    // Visualizzo il risultato
+    printf("Il prodotto è: %d\n", prodotto);
+
+    return 0;
+
+
+
+    /*
+
+     //media fra due prodotti
+
+    int n1, n2;
+    float media;
+
+
+    printf("Inserisci il primo valore: ");// Legge il primo valore
+    scanf("%d", &n1);
+
+
+    printf("Inserisci il secondo valore: ");// Leggi il secondo valore
+    scanf("%d", &n2);
+
+    // Calcola la media
+    media = (float)(n1 + n2) / 2; //(float) serve a fare il casting del risultato della somma dei due interi, in un numero float
+
+    // Visualizza la media
+    printf("La media dei due numeri è: %.2f\n", media);
+
+    return 0;
+
+    */
+
+
+}
