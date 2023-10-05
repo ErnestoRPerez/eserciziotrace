@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int scelta;
+    char nome[50]; // dichiarazione di un array di tipo char che equivale ad una stringa
+
+    do {
+        printf("Benvenuto in Epicuriosity, dove testiamo l'apprendimento dei nostri futuri hacker\n"
+               "Il funzionamento e' semplice dovrai solo scegliere una risposta fra le proposte che ti vengono date\n");
+        printf("EpicMenu:\n");
+        printf("1) Inizia una nuova partita\n");
+        printf("2) Esci dal gioco\n");
+        scanf(" %d", &scelta);
+
+        //costrutto switch per determinare il codice da eseguire in base alla scelta dell'utente
+        switch(scelta) {
+            case 1:
+
+                printf("Inserisci il tuo nome: ");
+                scanf("%s", nome);
+                printf("Ora iniziamo. Dimenticavamo il risultato del gioco verra' preso in considerazione come valutazione del tuo percorso.\n Buona fortuna.\n\n", nome);
+
+                    int risultato = 0;//variabile che registra il risultato raggiunto dopo ogni risposta giusta
+                    char ris1;
+                    char ris2;
+                    char ris3;
+                    char ris4;
+
+
+                    // 1 domanda
+                    printf("1: Come si chiama il miglior amico del personaggio principale di Big Bang Theory?\n");
+                    printf("A) Leonard \nB) Stuart\nC) Wolowitz\n");
+
+                    scanf(" %c", &ris1);
+                    if (ris1 == 'a' || ris1 == 'A') {// con luso dell'operatore || due possibili soluzioni di inserimento della stessa lettera per la risposta corretta
+                        risultato++;//aumento di 1 il risultato
+                        printf("Bravo questa l'hai scampata\n\n");
+                    } else {
+                        printf("Corri il rischio di essere bocciato!\n\n");
+                    }
+
+                    // 2 domanda
+                    printf("2: Chi fra i seguenti personaggi che hanno fatto la storia e' considerato il padre dell'informatica'?\n");
+                    printf("A) Von Neumann \nB) Alan Touring\nC) Oppenheimer\n");
+
+                    scanf(" %c", &ris2);
+                    if (ris2 == 'b' || ris2 == 'B') {// con luso dell'operatore || due possibili soluzioni di inserimento della stessa lettera per la risposta corretta
+                        risultato++;//aumento di 1 il risultato
+                        printf("Siamo lieti di saperlo!\n\n");
+                    } else {
+                        printf("Forse conviene leggere qualche libro.\n\n");
+                    }
+
+                    // 3 domanda
+                    printf("3: Quale fra i seguenti e' considerato un 'ethical hacker'?\n");
+                    printf("A) Red Hat\nB) Green Hat\nC) White Hat\n");
+
+                    scanf(" %c", &ris3);
+                    if (ris3 == 'c' || ris3 == 'C') {// con luso dell'operatore || due possibili soluzioni di inserimento della stessa lettera per la risposta corretta
+                        risultato++;//aumento di 1 il risultato
+                        printf("Esatto mio Black Hat!\n\n");
+                    } else {
+                        printf("Ripassa duramente queste sono le basi.\n\n");
+                    }
+                    // 4 domanda
+                    printf("3: Quale fra i seguenti e'1 un linguaggio backend?\n");
+                    printf("A) C\nB) Javascript\nC) Java\n");
+
+                    scanf(" %c", &ris4);
+                    if (ris4 == 'c' || ris4 == 'C') {// con luso dell'operatore || due possibili soluzioni di inserimento della stessa lettera per la risposta corretta
+                        risultato++;
+                        printf("Giusto\n\n");
+                    } else {
+                        printf("Non ci siamo.\n\n");
+                    }
+
+                    printf("Il numero di risposte corrette è: %d\n", risultato);
+
+
+                break;
+
+            case 2:
+
+                printf("Partita terminata.\n");
+
+                break;
+
+            default:
+                printf("Questa opzione non è disponibile.\n");
+                break;
+        }
+    } while (scelta != 2); // continua finché non si sceglie di uscire
+
+    return 0;
+}
