@@ -1,0 +1,74 @@
+
+#include <stdio.h>
+//file contenente bug logici
+void print_menu ();
+int gioca_partita ();
+
+int main() {
+//la dichiarazione per carattere nullo è '\0' senza le graffe
+    char scelta = {'\0'};
+
+    print_menu ();
+    scanf("%c", &scelta);
+    //non vengono gestite eventuali scelte diverse rispetto alle opzioni
+    if(scelta== 'B'){
+        printf("Grazie per aver giocato, alla prossima\n");
+        return 0;
+    }
+
+    //non ce un modo per uscire dal ciclo
+    while(scelta== 'A'){
+
+        gioca_partita ();
+        print_menu ();
+        scanf("%c", &scelta);
+    }
+
+    return 0;
+}
+
+void print_menu (){
+
+    printf("Start menu\n");
+    printf("A >> Iniziare una nuova partita\nB >> Uscire dal gioco\n");
+    printf("Inserisci la lettera corrispondente\n");
+}
+
+int gioca_partita (){
+    int punteggio =0;
+    char nome[20]={'\0'};
+    char risposta1, risposta2;
+
+    printf("Inserisci il tuo nome\n");
+
+    //non si usa "&" per leggere una stringa in questo caso
+    scanf("%s", &nome);
+
+    printf("Domanda numero 1:\n");
+    printf("Inserire qui la domanda\n");
+    printf("A >>> risposta 1\nB >>> risposta 2\nC >>> risposta 3\n");
+    printf("Inserire la risposta\n");
+    scanf(" %c", &risposta1);
+
+    //non vengono gestite eventuali scelte diverse rispetto alle opzioni
+    if(risposta1=='B'){
+
+    punteggio++;
+
+    }
+
+    printf("Domanda numero 2:\n");
+    printf("Inserire qui la domanda\n");
+    printf("A >>> risposta 1\nB >>> risposta 2\nC >>> risposta 3\n");
+    printf("Inserire la risposta\n");
+    scanf(" %c", &risposta2);
+
+    if(risposta2=='A'){
+
+        punteggio++;
+
+    }
+    printf("Partita conclusa, punteggio totalizzato da %s:%d\n", nome, punteggio);
+
+    return 0;
+}
