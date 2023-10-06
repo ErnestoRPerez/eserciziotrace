@@ -1,0 +1,106 @@
+
+#include <stdio.h>
+
+void print_menu();
+void gioca_partita();
+
+int main() {
+    int scelta;
+
+    do {
+        print_menu();
+        scanf(" %d", &scelta);
+
+        //loop numerico con due scelte
+        switch (scelta) {
+            case 1:
+
+                gioca_partita();
+                break;
+            case 2:
+
+                printf("Grazie per aver giocato, alla prossima\n");
+                break;
+            default:
+                printf("Scelta non valida. Riprova.\n");
+
+        }
+    } while (scelta != 2);//finche la scelta non è uscire il loop si ripete
+
+    return 0;
+}
+
+void print_menu() {
+    printf("Start menu\n");
+    printf("1 >> Iniziare una nuova partita\n2 >> Uscire dal gioco\n");
+    printf("Inserisci il numero corrispondente\n");
+}
+
+void gioca_partita() {
+    int punteggio = 0;
+    char nome[20];
+    char risposta1, risposta2;
+
+    printf("Inserisci il tuo nome\n");
+    scanf("%19s", nome);  // Limito la lettura a 19 caratteri per evitare overflow
+
+    //il loop do while mi permette di ripetere le la domanda e la risposta in caso di scelta non prevvista
+    do {
+        printf("Domanda numero 1:\n");
+        printf("Inserire qui la domanda\n");
+        printf("A >>> risposta 1\nB >>> risposta 2\nC >>> risposta 3\n");
+        scanf(" %c", &risposta1);
+
+        switch (risposta1) {
+
+            case 'A'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'a':
+                printf("Rsiposta corretta\n");
+                punteggio++;
+                break;
+
+            case 'B'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'b':
+                printf("Rsiposta sbagliata\n");
+                break;
+
+            case 'C'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'c':
+                printf("Rsiposta sbagliata\n");
+                break;
+
+            default:
+                printf("Scelta non valida\n");
+        }
+    }while(risposta1 != 'A' && risposta1 != 'a' && risposta1 != 'B' && risposta1 != 'b' && risposta1 != 'C' && risposta1 != 'c');//controllo riguardante la scelta utente
+
+    //il loop do while mi permette di ripetere le la domanda e la risposta in caso di scelta non prevvista
+    do {
+        printf("Domanda numero 2:\n");
+        printf("Inserire qui la domanda\n");
+        printf("A >>> risposta 1\nB >>> risposta 2\nC >>> risposta 3\n");
+        scanf(" %c", &risposta2);
+        switch (risposta2) {
+
+            case 'A'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'a':
+                printf("Rsiposta corretta\n");
+                punteggio++;
+                break;
+
+            case 'B'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'b':
+                printf("Rsiposta sbagliata\n");
+                break;
+
+            case 'C'://doppio case sulla medesima lettera per aggirare il case sensitive
+            case 'c':
+                printf("Rsiposta sbagliata\n");
+                break;
+            default:
+                printf("Scelta non valida\n");
+        }
+    }while (risposta2 != 'A' && risposta2 != 'a' && risposta2 != 'B' && risposta2 != 'b' && risposta2 != 'C' && risposta2 != 'c');//controllo riguardante la scelta utente
+
+    printf("Partita conclusa, punteggio totalizzato da %s: %d\n", nome, punteggio);
+}
